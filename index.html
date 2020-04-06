@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>计算器</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>HTML+CSS+Javascript计算器</h1>
+    <div class="calculator">
+      <div class="top">
+        <button id="clear" class="other">C</button>
+        <div class="view"></div>
+      </div>
+      <div class="calcu-btns">
+        <button class="calcu-btn number">7</button>
+        <button class="calcu-btn number">8</button>
+        <button class="calcu-btn number">9</button>
+        <button class="calcu-btn operator">+</button>
+        <button class="calcu-btn number">4</button>
+        <button class="calcu-btn number">5</button>
+        <button class="calcu-btn number">6</button>
+        <button class="calcu-btn operator">*</button>
+        <button class="calcu-btn number">1</button>
+        <button class="calcu-btn number">2</button>
+        <button class="calcu-btn number">3</button>
+        <button class="calcu-btn operator">-</button>
+        <button class="calcu-btn number">0</button>
+        <button class="calcu-btn operator">.</button>
+        <button class="calcu-btn operator">/</button>
+        <button class="other" id="equal">=</button>
+      </div>
+    </div>
+
+    <script>
+      var view = document.querySelector(".view");
+      var btns = document.querySelectorAll(".calcu-btn");
+      btns.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          var char = btn.innerHTML;
+          if (view.innerHTML == 0) {
+            if (char == 0) view.innerHTML = 0;
+            else view.innerHTML = char;
+          } else view.innerHTML += char;
+        });
+      });
+      var clear = document.querySelector("#clear");
+      clear.addEventListener("click", function () {
+        view.innerHTML = "";
+      });
+      var calculate = document.querySelector("#equal");
+      equal.addEventListener("click", function () {
+        var result = eval(view.innerHTML);
+        view.innerHTML = result;
+      });
+    </script>
+  </body>
+</html>
